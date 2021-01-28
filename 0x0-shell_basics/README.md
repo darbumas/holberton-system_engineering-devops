@@ -1,0 +1,21 @@
+This project contains the following scripts and purporse (by file):
+
+- 0-current_working_directory: prints the absolute path name of the current working directory.
+- 1-listit: displays the contents of the current dirctory.
+- 2-bring_me_home: changes the working directory to user's home directory.
+- 3-listfiles: desplays current directory contents in a long format.
+- 4-listmorefiles: displays current directory contents including hidden files.
+- 5-listfilesdigitonly: displays current directory contents.
+- 6-firstdirectory: creates a directory named holberton in the /tmp/directory.
+- 7-movethatfile: moves files from one directory to another.
+- 8-firstdelete: deletes a file in given directory.
+- 9-firstdirdeletion: deletes directory in /tmp.
+- 10-back: changes the working directory to the previous one.
+- 11-lists: more listing options.
+- 12-file_type: determines file type.
+- 13-symbolic_link: creates symbolic link.
+- 14-copy_html: copies HTML files from current to parent directory.
+- 15-lets_move: moves files that are first-letter capitalized to /tmp/u.
+- 16-clean_emacs: deletes all files in the current dir that end with "~".
+- 17-tree: creates directories.
+- 18-commas: lists all files and directories of the current directory, separated by commas.
