@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# ssh config for ease of access to server
+
+Host web01
+	HostName 54.146.224.251
+	User ubuntu
+	StrictHostKeyChecking No
+	PasswordAuthentication No
+	IdentityFile ~/.ssh/web01
