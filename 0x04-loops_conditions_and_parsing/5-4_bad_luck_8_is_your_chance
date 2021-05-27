@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Script uses the -- while-loop -- to print 10x the string "Holberton School"
+# on the 9th iteration, print "hi"
+i=1
+while [ $i -lt 10 ];
+do
+	if [ $i == 4 ]
+	then
+		echo "bad luck"
+	elif [ $i == 8 ]
+	then
+		echo "good luck"
+	else
+	echo "Holberton School"
+	fi
+	let i+=1
+done	
