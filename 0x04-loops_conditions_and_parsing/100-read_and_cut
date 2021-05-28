@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Script parses file /etc/passwd with a while loop,
+# and returns the values: username, user id, home dir path for the user
+
+while read
+do
+	cut -f 1,4,6 -d ':'
+done < /etc/passwd
