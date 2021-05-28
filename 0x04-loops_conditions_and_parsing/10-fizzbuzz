@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Script prints numbers 1-100 in a list format
+# condition: on multiples of 3 and 5 display "FizzBuzz",
+# on multiples of 3 diplay "Fizz", and on 5 display "Buzz".
+
+for num in $(seq 100)
+do
+	if [ $((num % 15)) = 0 ]
+	then
+		echo 'FizzBuzz'
+	elif [ $((num % 3)) = 0 ]
+	then
+		echo 'Fizz'
+	elif [ $((num % 5)) = 0 ]
+	then
+		echo 'Buzz'
+	else
+		echo "$num"
+	fi
+done
