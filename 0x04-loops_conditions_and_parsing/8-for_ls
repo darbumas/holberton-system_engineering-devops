@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script displays the list of content in the current directory
+# Uses the -- for-loop -- and only displays only the name of the file
+for file in *
+do
+	echo "$file" | cut -f 2 -d '-'
+done
