@@ -7,7 +7,6 @@ get_data () {
     ip=$(echo $recordIp | awk '{print $2}')
     echo "The subdomain $2 is a $record record and points to $ip"
 }
-
 if [ $# -eq 1 ]
 then
     # Print all subdomains
