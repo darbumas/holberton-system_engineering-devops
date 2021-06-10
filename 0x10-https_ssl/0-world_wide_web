@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Display info about subdomanin
+
+get_data () {
+    recordIp=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $4,$5}')
+    record=$(echo $recordIp | awk '{print $1}')
+    ip=$(echo $recordIp | awk '{print $2}')
+    echo "The subdomain $2 is a $record record and points to $ip"
+}
+
+if [ $# -eq 1 ]
+then
+    # Print all subdomains
+    get_data $1 www
+    get_data $1 lib-01
+    get_data $1 web-01
+    get_data $1 web-02
+elif [ $# -eq 2 ]
+then
+    # Print specified subdomain
+    get_data $1 $2
+fi
