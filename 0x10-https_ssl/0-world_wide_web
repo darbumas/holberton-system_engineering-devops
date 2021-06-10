@@ -11,7 +11,7 @@ if [ $# -eq 1 ]
 then
     # Print all subdomains
     get_data $1 www
-    get_data $1 lib-01
+    get_data $1 lb-01
     get_data $1 web-01
     get_data $1 web-02
 elif [ $# -eq 2 ]
