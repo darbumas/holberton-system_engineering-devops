@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-# Gather data from an API
+""" Module to gather data from an API"""
+
 import requests
 import sys
 
+
 def get_employee_tasks(employeeID):
+    """ method to format print employee name and tasks """
     name = ' '
     taskList = []
     completed_counter = 0
@@ -29,5 +32,5 @@ def get_employee_tasks(employeeID):
         print('\t {}'.format(title))
     return 0
 
-if __name__== "__main__":
+if __name__ == "__main__":
     get_employee_tasks(sys.argv[1])
