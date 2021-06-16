@@ -1,36 +1,34 @@
 #!/usr/bin/python3
-""" Module to gather data from an API"""
-
+""" Module to gather data from an API """
 import requests
-import sys
+from sys import argv
 
 
-def get_employee_tasks(employeeID):
-    """ method to format print employee name and tasks """
-    name = ' '
-    taskList = []
-    completed_counter = 0
+def get_employee_tasks(employeeId):
+    """ Gather data """
+    name = ''
+    task_list = []
+    idx = 0
 
-    usersRes = requests.get('https://jsonplaceholder.typicode.com/users/{}'
-                            .format(employeeID))
-    todosRes = requests.get('https://jsonplaceholder.typicode.com/users/{}/\
-                            todos'.format(employeeID))
+    usersRes = requests.get(
+        "https://jsonplaceholder.typicode.com/users/{}".format(employeeId))
+    todosRes = requests.get(
+        "https://jsonplaceholder.typicode.com/users/{}/todos".
+        format(employeeId))
 
     name = usersRes.json().get('name')
-    print('Name: {}'.format(name))
-
     todosJson = todosRes.json()
 
     for task in todosJson:
         if task.get('completed') is True:
-            completed_counter += 1
-            taskList.append(task.get('title'))
-    print('task_list: {}'.format(taskList))
-    print('Employee {} is done with tasks({}/{}):'
-          .format(name, completed_counter, len(todosJson)))
-    for title in taskList:
+            idx += 1
+            task_list.append(task.get('title'))
+
+    print('Employee {} is done with tasks({}/{}):'.format(
+        name, idx, len(todosJson)))
+    for title in task_list:
         print('\t {}'.format(title))
     return 0
 
-if __name__ == "__main__":
-    get_employee_tasks(sys.argv[1])
+if __name__ == '__main__':
+    get_employee_tasks(argv[1])
