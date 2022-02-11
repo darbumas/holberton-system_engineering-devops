@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displays the only listening ports with PID & name of program -> socket
+sudo netstat --listening --program
