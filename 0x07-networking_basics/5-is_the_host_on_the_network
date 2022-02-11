@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+# Pings an IP address passed as an argument [$1]
+# Displays "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}" if ![$1]
+if [[ $1 != "" ]];
+then
+	ping -c 5 "$1"
+else
+	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+fi
