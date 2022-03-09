@@ -1,1 +1,9 @@
 #!/usr/bin/env bash
+# Modified the ~/.ssh/config for ease of access to server
+
+Host web01
+	HostName 34.224.166.248
+	User ubuntu
+	StrictHostKeyChecking No
+	PasswordAuthentication No
+	IdentityFile ~/.ssh/school
