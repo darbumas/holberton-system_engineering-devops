@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script to install nginx
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+touch /var/www/html/custom_404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+search="^\tlocation / {"
+alt="\terror_page 404 /custom_404.html;\n\n\tlocation /redirect_me {\n\t\treturn 301 \$scheme://https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n\tlocation / {"
+sudo sed -i "s@${search}@${alt}@" /etc/nginx/sites-available/default
+
+service nginx restart
