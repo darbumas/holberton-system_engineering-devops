@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Install nginx, change GET request to return
+# the string "Hello World"
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+service nginx restart
+echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
