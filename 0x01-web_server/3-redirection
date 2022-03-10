@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script to install nginx
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+service nginx restart
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+search="^\tlocation / {"
+alt="\tlocation /redirect_me {\n\t\treturn 301 \$scheme://https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n\tlocation / {"
+
+sed -i "s@${search}@${alt}@" /etc/nginx/sites-available/default
+
+service nginx restart
