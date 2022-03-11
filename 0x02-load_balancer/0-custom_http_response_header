@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Install nginx and add custom header to server
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+service nginx start
+echo "Hello World" | tee /var/www/html/index.nginx-debian.html
+
+touch /var/www/html/custom_404.html
+echo "Ceci n'est pas une page" | tee /var/www/html/custom_404.html
+search="^\tlocation / {"
+alt="\tadd_header X-Served-By $HOSTNAME;\n\n\terror_page 404 /custom_404.html;\n\n\tlocation /redirect_me {\n\t\treturn 301 \$scheme://https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n\tlocation / {"
+sed -i "s@${search}@${alt}@" /etc/nginx/sites-available/default
+
+service nginx restart
