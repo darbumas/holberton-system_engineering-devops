@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Displays information about a DNS record
+
+dns_info () {
+    dom="$1"
+    subD="$2"
+    dig "$subD.$dom" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subD"
+}
+for subD in "www" "lb-01" "web-01" "web-02"
+do
+    if [ -z "$2" ] || [ "$2" == "$subD" ]; then
+        dns_info "$1" "$subD"
+    fi
+done
